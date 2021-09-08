@@ -1,0 +1,97 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Fortune Cookie!!!</title>
+  <meta name="description" content="Spotify Song Mystery Box!">
+  <meta name="author" content="SitePoint">
+
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+  <style>
+      body {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  height: 100vh;
+  color: #333;
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.card {
+  width: 500px;
+  height: 300px;
+  position: relative;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgb(103, 96, 240) 0%, #845ae7 35%, rgb(155, 227, 241) 100%);
+  
+  border-radius: 20px;
+  background-position: top center;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  
+}
+
+.card:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    border-radius: 50%;
+    left: 0;
+    bottom: 0px;
+    box-shadow: 0 30px 20px rgba(0, 0, 0, .3);
+  }
+
+  .card-content {
+  transform-style: preserve-3d;
+  text-align: center;
+
+  
+}
+.card-content h1 {
+    color: #FFF;
+    transform: translateZ(100px);
+  }
+  .card-content p {
+    color: #FFF;
+    transform: translateZ(50px);
+    margin: 10px;
+  }
+
+  </style>
+
+
+</head>
+
+<body>
+    <div class='card'>
+        <div class="card-content">
+          <h1>Your Task:</h1>
+          <p class='task'></p>
+        </div>
+      </div>
+    <script>
+       let card = document.querySelector('.card');
+
+        document.addEventListener('mousemove', function(e) {
+        let xAxis = (window.innerWidth / 2 - e.pageX) / 10;
+        let yAxis = (window.innerHeight / 2 - e.pageY) / 5;
+        card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+        const tasks = ['Drink at least 5 ltrs of water', 'Study More!', 'Go Out', 'Call a Random Friend', 'Send your Best Friend your favorite Memory of them', 'Eat Chocolate', 'Apologize to Someone you really wanna', 'Appreciate Someone you\'re Thankful for', 'Hug your mom', 'Hug your baba?', 'Hug Haider and watch him go all WEIRD', 'Just smile for 1 minutes', 'Laugh out like a mad man for 10 minutes', 'Give little sis a kiss', 'Listen to that one song you always wanted to', 'Tell someone you Love them. Doesn\'t matter who.', 'Make a Post saying: Galactic CSC is kinda cool', 'Make a random Dua', 'Make a very Specific Dua', 'Recollect a memory and write it down', 'VideoCall a friend', 'Draw a painting', 'Cook Something', 'Argue with someone for no reason']
+        document.querySelector('.task').textContent =  tasks[Math.floor(Math.random()*tasks.length)];
+    </script>
+</body>
+</html>
